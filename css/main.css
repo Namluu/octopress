@@ -1,20 +1,27 @@
 body {
     background-color: #000;
-    color: #fff;
+    color: #e4e2e2;
     min-height: 700px;
     font-family: "Comic Sans MS",cursive,sans-serif;
 }
 .container {
-    width: 960px;
-    margin: 50px auto;
+    max-width: 800px;
+    margin: 0 auto;
     text-align: center;
+    position: relative;
+    z-index: 10;
 }
 .bg {
     position: fixed;
     bottom: 0;
     left: 0;
+    z-index: 1;
 }
 .text-xl {
-    font-size: 3em;
+    font-size: 2em;
     line-height: 1em;
+}
+.text-xl img {
+    margin-top: 20px;
+    width: 100%;
 }
