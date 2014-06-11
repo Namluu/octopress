@@ -1,9 +1,17 @@
 body {
-    background-color: #000;
+    margin: 0;
+    padding: 0;
     color: #e4e2e2;
     min-height: 700px;
     font-family: "Comic Sans MS",cursive,sans-serif;
 }
+
+a, a:hover, a:focus { color: #347799; }
+a { text-decoration: none; }
+a:hover { color: #48baf3; text-decoration: none; }
+
+label { font-weight: normal }
+
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -24,4 +32,84 @@ body {
 .logo {
     margin-top: 20px;
     width: 60%;
+}
+.vco-toolbar {
+    display: none;
+}
+/* ===================== NEW ============================ */
+.site-header {
+    min-height: 570px;
+    background: url('../images/header-bg.png') scroll repeat-x 0 0 transparent;
+    position: relative;
+}
+.site-container {
+    max-width: 980px;
+    margin: 0 auto;
+    text-align: center;
+}
+.site-header .site-container {
+    position: relative;
+}
+.logo-img {
+    margin-top: 35px;
+    position: relative;
+    z-index: 20;
+}
+.site-nav {
+    list-style: none;
+    font-size: 30px;
+    height: 100px;
+}
+.site-nav li a {
+    z-index: 30;
+    position: relative;
+}
+.about {
+    background: url("../images/cloud1.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 60px;
+    left: 240px;
+    line-height: 75px;
+    position: absolute;
+    top: 50px;
+    width: 100px;
+}
+.projects {
+    background: url("../images/cloud3.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 121px;
+    left: 300px;
+    line-height: 160px;
+    position: absolute;
+    top: 60px;
+    width: 196px;
+}
+.contact {
+    background: url("../images/cloud4.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 79px;
+    line-height: 110px;
+    position: absolute;
+    right: 270px;
+    top: 100px;
+    width: 152px;
+}
+.other {
+    background: url("../images/cloud4.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    height: 79px;
+    position: absolute;
+    right: 210px;
+    top: 45px;
+    width: 152px;
+}
+.flex-direction-nav a { height: 45px; }
+.slider {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.my-work {
+    color: #347799;
+    font-size: 30px;
+    margin: 0 auto 20px;
+    max-width: 700px;
+}
+.my-work label {
+    vertical-align: top;
 }
