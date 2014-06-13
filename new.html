@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tom Luu</title>
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="js/libraries/flexslider/flexslider.css" type="text/css" />
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -14,9 +15,9 @@
         <div class="site-container">
             <a href=""><img class="logo-img" src="images/logo-new.png" /></a>
             <ul class="site-nav hidden-xs">
-                <li class="about"><a href="">about</a></li>
-                <li class="projects"><a href="">projects</a></li>
-                <li class="contact"><a href="">contact</a></li>
+                <li class="about"><a href="#about">about</a></li>
+                <li class="projects"><a href="#projects">projects</a></li>
+                <li class="contact"><a href="#contact">contact</a></li>
                 <li class="other"><a href=""></a></li>
             </ul>
             <nav class="navbar navbar-default visible-xs" role="navigation">
@@ -64,12 +65,50 @@
                     </ul>
                 </div>
             </section>
+            <!--<p><script type="IN/MemberProfile" data-id="http://www.linkedin.com/in/namluuduc" data-related="false" data-format="inline"></script></p>-->
         </div>
     </header>
+    <div class="main">
+        <div class="site-container">
+            <div class="my-work text-left">
+                <label>About me</label>
+                <img src="images/cat-foot.png" />
+            </div>
+            <section id="about">About me ...</section>
+            <div class="my-work text-left">
+                <label>My projects</label>
+                <img src="images/cat-foot.png" />
+            </div>
+            <section id="projects">
+                <img src="images/ajax-loader.gif" />
+                <script id="projectsTemplate" type="text/x-handlebars-template">
+                    <div class="timeline">
+                        {{#stripes this "left-aligned" "" }}
+                        <article class="entry {{stripeClass}}">
+                            <div class="timeline-entry-inner">
+                                <div class="timeline-icon">
+                                    <span class="glyphicon glyphicon-briefcase"></span>
+                                </div>
+                                <div class="timeline-label">
+                                    <h4 class="timeline-title"><a href="{{url}}">{{name}}</a></h4>
+                                    <p>{{{descriptionRaw}}}</p>
+                                    <p><a href="{{linkedinLink}}"><i class="fa fa-linkedin-square"></i></a></p>
+                                </div>
+                            </div>
+                        </article>
+                        {{/stripes}}
+                    </div>
+                </script>
+            </section>
+        </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="js/libraries/flexslider/jquery.flexslider-min.js"></script>
+    <script src="https://rawgithub.com/wycats/handlebars.js/1.0.0/dist/handlebars.js"></script>
+
+    <script src="js/main.js"></script>
     <script>
     $(window).load(function(){
         $('.flexslider').flexslider({
@@ -81,7 +120,10 @@
     });
     </script>
     <script type="text/javascript" src="http://platform.linkedin.com/in.js">
-      api_key: 75l4qt2tavhpjs
+        api_key: 75l4qt2tavhpjs
+        onLoad: onLinkedInLoad
+        authorize: true
     </script>
+    <script src="js/linkedin-api.js"></script>
 </body>
 </html>
