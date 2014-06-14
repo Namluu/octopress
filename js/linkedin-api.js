@@ -1,3 +1,7 @@
+jQuery(document).ready(function($) {
+    displayProfiles(profiles);
+});
+
 function onLinkedInLoad() {
     IN.Event.on(IN, "auth", onLinkedInAuth);
 }
