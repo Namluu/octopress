@@ -51,8 +51,7 @@ function displayProfiles(profiles, skill) {
         return buffer;
     });
 
-    console.log(projects[0]);
-    //projects[0].skill.push(skill.php, skill.joomla);
+    //console.log(projects[0]);
 
     $('#projects').empty().html(template(projects));
 
