@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <header class="site-header">
+    <header class="site-header text-center container-fluid" id="top">
         <div class="site-container">
             <a href=""><img class="logo-img" src="images/logo-new.png" /></a>
             <ul class="site-nav hidden-xs">
@@ -36,9 +36,9 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">about</a></li>
-                            <li><a href="#">projects</a></li>
-                            <li><a href="#">contact</a></li>
+                            <li class="active"><a href="#about">about</a></li>
+                            <li><a href="#projects">projects</a></li>
+                            <li><a href="#contact">contact</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
@@ -49,6 +49,7 @@
             </div>
             <section class="slider">
                 <div class="flexslider">
+                    <img id="slider_loading" src="images/ajax-loader.gif" />
                     <ul class="slides">
                         <li>
                             <img src="images/slider1.jpg" />
@@ -68,45 +69,117 @@
             <!--<p><script type="IN/MemberProfile" data-id="http://www.linkedin.com/in/namluuduc" data-related="false" data-format="inline"></script></p>-->
         </div>
     </header>
-    <div class="main">
-        <div class="site-container">
-            <div class="my-work text-left">
-                <label>About me</label>
-                <img src="images/cat-foot.png" />
-            </div>
-            <section id="about">About me ...</section>
-            <div class="my-work text-left">
-                <label>My projects</label>
-                <img src="images/cat-foot.png" />
-            </div>
-            <section id="projects">
-                <img src="images/ajax-loader.gif" />
-                <script id="projectsTemplate" type="text/x-handlebars-template">
-                    <div class="timeline">
-                        {{#stripes this "left-aligned" "" }}
-                        <article class="entry {{stripeClass}}">
-                            <div class="timeline-entry-inner">
-                                <div class="timeline-icon">
-                                    <span class="glyphicon glyphicon-briefcase"></span>
-                                </div>
-                                <div class="timeline-label">
-                                    <h4 class="timeline-title"><a href="{{url}}">{{name}}</a></h4>
-                                    <p>{{{descriptionRaw}}}</p>
-                                    <p><a href="{{linkedinLink}}"><i class="fa fa-linkedin-square"></i></a></p>
-                                </div>
-                            </div>
-                        </article>
-                        {{/stripes}}
+    <div class="site-main">
+        <section class="violet-bg container-fluid">
+            <div class="site-container">
+                <div class="my-work text-left">
+                    <p class="summary">“Accomplishment will prove to be a journey, not a destination.”</p>
+                    <p class="summary">- Dwight D. Eisenhower</p>
+                    <strong></strong>
+                    <label>About me</label>
+                </div>
+                <div id="about">
+                    <div class="text-center"><img src="images/ajax-loader.gif" /></div>
+                    <script id="aboutTemplate" type="text/x-handlebars-template">
+                    <div class="media">
+                        <a class="pull-left" href="#">
+                            <img class="media-object img-thumbnail hidden-xs" src="images/my-pic.png">
+                        </a>
+                        <div class="text-center visible-xs"><img class="img-circle" src="images/small-pic.jpg"></div>
+                        <div class="media-body">
+                            <p><span class="glyphicon glyphicon-book"></span> Name: Tom Luu</p>
+                            <p><span class="glyphicon glyphicon-briefcase"></span> Current job: {{headline}}</p>
+                            <p><span class="glyphicon glyphicon-paperclip"></span> Category: {{industry}}</p>
+                            <br />
+                            <p><span class="glyphicon glyphicon-list-alt"></span> <strong>School</strong></p>
+                            <ul>
+                                <li><strong>2008</strong> Graduated 
+                                <span class="text-nava">Pleiku Hight School</span></li>
+                                <li><strong>2012</strong> Graduated 
+                                <span class="text-nava">HCMC Open University</span></li>
+                            </ul>
+                            <br />
+                            <p><span class="glyphicon glyphicon-list-alt"></span> <strong>Work</strong></p>
+                            <ul>
+                                {{#reverse this.positions.values}}
+                                <li>
+                                    <strong>{{startDate.month}}-{{startDate.year}}</strong> 
+                                    <span class="glyphicon glyphicon-arrow-right"></span> 
+                                    {{#if endDate}}<strong>{{endDate.month}}-{{endDate.year}}</strong> 
+                                    {{else}}
+                                    <span class="glyphicon glyphicon-star text-danger"></span>
+                                    {{/if}}
+                                    <p>{{title}} at <span class="text-nava">{{company.name}}</span></p>
+                                </li>
+                                {{/reverse}}
+                            </ul>
+                        </div>
                     </div>
-                </script>
-            </section>
-        </div>
+                    </script>
+                </div>
+            </div>
+        </section>
+        <section class="lightblue-bg container-fluid">
+            <div class="site-container row">
+                <div class="my-work text-left"><label>My projects</label><img src="images/cat-foot.png" /></div>
+                <div id="projects">
+                    <div class="text-center"><img src="images/ajax-loader.gif" /></div>
+                    <script id="projectsTemplate" type="text/x-handlebars-template">
+                        <div class="timeline">
+                            {{#stripes this "left-aligned" "" }}
+                            <article class="entry {{stripeClass}}">
+                                <div class="timeline-entry-inner">
+                                    <div class="timeline-icon">
+                                        <span class="glyphicon glyphicon-briefcase"></span>
+                                    </div>
+                                    <div class="timeline-label">
+                                        <h4 class="timeline-title"><a href="{{url}}">{{name}}</a></h4>
+                                        <p>{{{descriptionRaw}}}</p>
+                                        <p><a href="{{linkedinLink}}"><i class="fa fa-linkedin-square"></i></a></p>
+                                        <p><strong>Skill</strong></p>
+                                        {{#each this.skill}}
+                                            <span><a href="{{urlHome}}"><img src="images/{{icon}}.png" title="{{title}}"></a></span>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </article>
+                            {{/stripes}}
+                        </div>
+                    </script>
+                </div>
+            </div>
+        </section>
+        <section class="smoke-bg container-fluid">
+            <div class="site-container row">
+                <div class="my-work text-left"><label>Contact</label><img src="images/cat-foot.png" /></div>
+                <div id="contact" class="my-work">
+                    <p><span class="glyphicon glyphicon-map-marker"></span> Ho Chi Minh city, Vietnam</p>
+                    <p><span class="glyphicon glyphicon-envelope"></span> <a href="mailto:nam.luuduc@gmail.com">nam.luuduc@gmail.com</a></p>
+                    <p><span class="fa fa-skype"></span> <a href="skype:nam.luuduc90?chat">nam.luuduc90</a></p>
+                    <p class="links">
+                        <a title="linkedin" href="http://vn.linkedin.com/in/namluuduc/"><i class="fa fa-linkedin-square"></i></a>
+                        <a title="facebook" href="https://www.facebook.com/nam.luuduc"><i class="fa fa-facebook-square"></i></a>
+                        <a title="github" href="https://github.com/Namluu"><i class="fa fa-github-square"></i></a>
+                        <a title="twitter" href="https://twitter.com/samorai_gialai"><i class="fa fa-twitter-square"></i></a>
+                    </p>
+                </div>
+            </div>
+        </section>
     </div>
+
+    <footer class="site-footer">
+        <div class="text-center">
+            <p><span class="glyphicon glyphicon-copyright-mark"></span> Nam Luu Duc (Tom Luu)</p>
+            <p>6-2014</p>
+        </div>
+    </footer>
+
+    <a id="goTop" href="#top" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="js/libraries/flexslider/jquery.flexslider-min.js"></script>
-    <script src="https://rawgithub.com/wycats/handlebars.js/1.0.0/dist/handlebars.js"></script>
+    <script src="js/handlebars.js"></script>
 
     <script src="js/main.js"></script>
     <script>
@@ -114,7 +187,7 @@
         $('.flexslider').flexslider({
             animation: "slide",
             start: function(slider){
-              $('body').removeClass('loading');
+              $('#slider_loading').css('display','none');
             }
         });
     });
@@ -127,6 +200,7 @@
     </script>
     -->
     <script src="data/linkedin.json"></script>
+    <script src="data/skill.json"></script>
     <script src="js/linkedin-api.js"></script>
 </body>
 </html>

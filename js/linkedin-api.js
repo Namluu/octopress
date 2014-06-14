@@ -1,5 +1,6 @@
 jQuery(document).ready(function($) {
-    displayProfiles(profiles);
+    displayProfiles(profiles, skill);
+    displayAbout(profiles);
 });
 
 function onLinkedInLoad() {
@@ -11,12 +12,20 @@ function onLinkedInAuth() {
     .result(displayProfiles)
     .error(displayProfilesErrors);
 }
-function displayProfiles(profiles) {
+function displayProfiles(profiles, skill) {
     var projects = profiles.values[0].projects.values,
         linkedinLink = profiles.values[0]._key;
 
     var template = Handlebars.compile( $('#projectsTemplate').html() );
-    
+
+    var skill = [
+        [skill.php, skill.mysql, skill.joomla],
+        [skill.php, skill.mysql, skill.symfony],
+        [skill.html5, skill.php, skill.mysql, skill.wordpress],
+        [skill.html5, skill.php, skill.mysql, skill.wordpress],
+        [skill.html5, skill.php, skill.mongodb, skill.wordpress, skill.symfony],
+    ];
+
     Handlebars.registerHelper("stripes", function(array, even, odd, options) {
         var buffer = "";
             
@@ -34,15 +43,36 @@ function displayProfiles(profiles) {
                 }
             }
 
+            item.skill = skill[i];
+
             buffer += options.fn(item);
         }
         // return the finished buffer
         return buffer;
     });
 
-    $('#projects').empty().append(template(projects));
+    console.log(projects[0]);
+    //projects[0].skill.push(skill.php, skill.joomla);
+
+    $('#projects').empty().html(template(projects));
 
     //console.log(projects);
+}
+function displayAbout(profiles) {
+    var data = profiles.values[0];
+
+    var template = Handlebars.compile( $('#aboutTemplate').html() );
+
+    // https://github.com/SparkartGroupInc/handlebars-helper/blob/master/lib/helpers/reverse.js
+    Handlebars.registerHelper("reverse", function(array, options) {
+        var result = '';
+        for( var i = array.length - 1; i >= 0; i-- ){
+            result += options.fn( array[i] );
+        }
+        return result;
+    });
+
+    $('#about').empty().html(template(data));
 }
 function displayProfilesErrors(error) {
     console.log(error);
