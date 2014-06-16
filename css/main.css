@@ -268,19 +268,3 @@ label { font-weight: normal }
     padding: 20px 0;
     background-color: #e1e1e8;
 }
-.icon-large.loading {
-    margin: 0 auto;
-    width: 100px;
-    height: 100px;
-    background-repeat: no-repeat;
-    background-image: url('../images/loading-100.png');
-    -webkit-animation: loading-animation-large 1s steps(26) infinite;
-    -moz-animation: loading-animation-large 1s steps(26) infinite;
-    -ms-animation: loading-animation-large 1s steps(26) infinite;
-    -o-animation: loading-animation-large 1s steps(26) infinite;
-    animation: loading-animation-large 1s steps(26) infinite;
-}
-@-webkit-keyframes loading-animation-large{from{background-position:0 0}to{background-position:0 -2600px}}
-@-moz-keyframes loading-animation-large{from{background-position:0 0}to{background-position:0 -2600px}}
-@-o-keyframes loading-animation-large{from{background-position:0 0}to{background-position:0 -2600px}}
-@keyframes loading-animation-large{from{background-position:0 0}to{background-position:0 -2600px}}
