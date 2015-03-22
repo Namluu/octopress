@@ -1,31 +1,74 @@
-jQuery(document).ready(function($){
-    $('.nav-slide > li > a').click(function() { 
-        $('.nav-slide > li').removeClass('active');
-        $(this).parent().addClass('active');
-        var hrefcuaa = $(this).attr('href');
-        hrefcuaa = hrefcuaa.substr(1);
-        if ( hrefcuaa ) {
-            $('body,html').animate({ scrollTop: $('#' + hrefcuaa).offset().top - 120}, 800);
-        }
-        
-        return false;
+$(document).ready(function() {
+    $('.home-slider').flexslider({
+        animation: "slide",
+        directionNav: false,
+        controlNav: false,
+        direction: "vertical",
+        slideshowSpeed: 2500,
+        animationSpeed: 500,
+        smoothHeight: false
     });
+    //$(".intro-section").backstretch("images/header-bg.jpg");
+	$.backstretch('images/header-bg.jpg');
+	$('#what').waypoint(function(direction){
 
-    // back to top
-    $("#goTop").hide();
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            $('#goTop').fadeIn();
-        } else {
-            $('#goTop').fadeOut();
-        }
-    });
+		if($('.preload-image').length){$('.preload-image').remove();}
+		
+		$('.backstretch').remove();
+	
+		if (direction=='down'){
+			$.backstretch('images/contact-bg.jpg');
+		}else{
+			$.backstretch('images/header-bg.jpg');
+		}
+	});
+    /*============================================
+	Project Preview
+	==============================================*/
+	$('.project-item').click(function(e){
+		e.preventDefault();
 
-    // scroll body to 0px on click
-    $('#goTop').click(function (e) {
-        e.preventDefault();
-        $('body,html').animate({
-            scrollTop: 0
-        }, 800);
-    });
+		var elem = $(this),
+			title = elem.find('.project-title').text(),
+			link = elem.attr('href'),
+			descr = elem.find('.project-description').html(),
+			slidesHtml = '<ul class="slides">',
+
+			slides = elem.data('images').split(',');
+
+		for (var i = 0; i < slides.length; ++i) {
+			slidesHtml = slidesHtml + '<li><img src='+slides[i]+' alt=""></li>';
+		}
+		
+		slidesHtml = slidesHtml + '</ul>';
+		
+
+		$('#project-modal').on('show.bs.modal', function () {
+			$(this).find('h1').text(title);
+			$(this).find('.btn').attr('href',link);
+			$(this).find('.project-descr').html(descr);
+			$(this).find('.image-wrapper').addClass('flexslider').html(slidesHtml);
+			
+			setTimeout(function(){
+				$('.image-wrapper.flexslider').flexslider({
+					slideshowSpeed: 3000,
+					animation: 'slide',
+					controlNav: false,
+					start: function(){
+						$('#project-modal .image-wrapper')
+						.addClass('done')
+						.prev('.loader').fadeOut();
+					}
+				});
+			},1000);
+		}).modal();
+	});
+	$('#project-modal').on('hidden.bs.modal', function () {
+		$(this).find('.loader').show();
+		$(this).find('.image-wrapper')
+			.removeClass('flexslider')
+			.removeClass('done')
+			.html('')
+			.flexslider('destroy');
+	});
 });
