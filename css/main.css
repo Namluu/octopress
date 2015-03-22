@@ -72,11 +72,12 @@ of those sections to manage the look and feel of the site. */
     background:rgba(255,255,255,0.9);
     padding:20px 0;
 }
-
+.left-col, .right-col {
+  float: left;
+}
 #intro .left-col{
     width:35%;
     text-align:right;
-    float: left;
 }
 
 #intro .right-col{
@@ -88,7 +89,6 @@ of those sections to manage the look and feel of the site. */
     background:transparent;
     margin:0;
     padding:0;
-    float: left;
 }
 
 #intro .left-col p{
