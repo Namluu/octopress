@@ -23,6 +23,7 @@
     30%  { top:10px; opacity: 1;}
     100% { top:25px; opacity: 0;}
 }
+
 .scrollimation.scale-in {
   opacity: 0;
   -webkit-transform: scale(0.8);
@@ -32,6 +33,7 @@
   -webkit-transition: -webkit-transform .6s cubic-bezier(.17,.89,.67,1.57), opacity .6s ease-out;
   transition: transform .6s cubic-bezier(.17,.89,.67,1.57), opacity .6s ease-out;
 }
+
 .scrollimation.scale-in.in {
   opacity: 1;
   -webkit-transform: scale(1);
@@ -55,6 +57,7 @@
   -ms-transform: translateX(0px);
   transform: translateX(0px);
 }
+
 .scrollimation.fade-right {
   opacity: 0;
   -webkit-transform: translateX(-30px);
@@ -64,10 +67,19 @@
   -webkit-transition: -webkit-transform .6s ease-in,opacity .8s ease-in;
   transition: transform .6s ease-in,opacity .8s ease-in;
 }
+
 .scrollimation.fade-right.in {
   opacity: 1;
   -webkit-transform: translateX(0px);
   -moz-transform: translateX(0px);
   -ms-transform: translateX(0px);
   transform: translateX(0px);
+}
+.scrollimation.fade-in {
+  opacity: 0;
+  -webkit-transition: opacity 0.4s ease-out;
+  transition: opacity 0.4s ease-out;
+}
+.scrollimation.fade-in.in {
+  opacity: 1;
 }
