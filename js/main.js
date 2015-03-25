@@ -1,3 +1,5 @@
+$.backstretch('images/header-bg.jpg');
+
 $(document).ready(function() {
     $('.home-slider').flexslider({
         animation: "slide",
@@ -9,7 +11,7 @@ $(document).ready(function() {
         smoothHeight: false
     });
     //$(".intro-section").backstretch("images/header-bg.jpg");
-	$.backstretch('images/header-bg.jpg');
+	
 	$('#what').waypoint(function(direction){
 
 		if($('.preload-image').length){$('.preload-image').remove();}
