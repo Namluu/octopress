@@ -10,6 +10,8 @@ $(document).ready(function() {
         animationSpeed: 500,
         smoothHeight: false
     });
+    $('.message-box-loader').css('display','none');
+	$('.message-box').css('display','block');
     //$(".intro-section").backstretch("images/header-bg.jpg");
 	
 	$('#what').waypoint(function(direction){
