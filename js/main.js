@@ -1,4 +1,4 @@
-$.backstretch('images/header-bg.jpg');
+
 
 $(document).ready(function() {
     $('.home-slider').flexslider({
@@ -12,6 +12,7 @@ $(document).ready(function() {
     });
     $('.message-box-loader').css('display','none');
 	$('.message-box').css('display','block');
+	$.backstretch('images/header-bg.jpg');
     //$(".intro-section").backstretch("images/header-bg.jpg");
 	
 	$('#what').waypoint(function(direction){
