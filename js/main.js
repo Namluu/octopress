@@ -8,6 +8,7 @@ $(document).ready(function() {
         animationSpeed: 500,
         smoothHeight: false
     });
+    
     //$(".intro-section").backstretch("images/header-bg.jpg");
 	$.backstretch('images/header-bg.jpg');
 	$('#what').waypoint(function(direction){
