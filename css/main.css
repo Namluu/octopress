@@ -606,3 +606,7 @@ h1.section-title {
     font-size: 40px;
   }
 }
+
+.message-box {
+  display: none;
+}

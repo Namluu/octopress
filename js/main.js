@@ -1,3 +1,5 @@
+$.backstretch('images/header-bg.jpg');
+
 $(document).ready(function() {
     $('.home-slider').flexslider({
         animation: "slide",
@@ -8,9 +10,10 @@ $(document).ready(function() {
         animationSpeed: 500,
         smoothHeight: false
     });
-    
+    $('.message-box-loader').css('display','none');
+	$('.message-box').css('display','block');
     //$(".intro-section").backstretch("images/header-bg.jpg");
-	$.backstretch('images/header-bg.jpg');
+	
 	$('#what').waypoint(function(direction){
 
 		if($('.preload-image').length){$('.preload-image').remove();}
