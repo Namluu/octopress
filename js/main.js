@@ -12,7 +12,7 @@ $(document).ready(function() {
     });
     $('.message-box-loader').css('display','none');
 	$('.message-box').css('display','block');
-	$.backstretch('images/header-bg-2.jpg');
+	$.backstretch('images/header-bg.jpg');
     //$(".intro-section").backstretch("images/header-bg.jpg");
 	
 	$('#what').waypoint(function(direction){
