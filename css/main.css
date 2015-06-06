@@ -286,7 +286,7 @@ h1.section-title {
   text-align: left;
 }
 #about .avatar {
-  box-shadow: 12px 0px 0px 12px rgba(255,255,255,0.2), -12px 0px 0px 12px rgba(255,255,255,0.2);
+  box-shadow: 6px 0px 0px 6px rgba(255,255,255,0.2), -6px 0px 0px 6px rgba(255,255,255,0.2);
 }
 #about h2 {
   font-weight: 300;
