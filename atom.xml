@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[NamLuu Blog]]></title>
+  <title><![CDATA[NamLuu]]></title>
   <link href="http://namluu.github.io/atom.xml" rel="self"/>
   <link href="http://namluu.github.io/"/>
-  <updated>2015-12-17T11:44:12+07:00</updated>
+  <updated>2015-12-17T11:51:06+07:00</updated>
   <id>http://namluu.github.io/</id>
   <author>
     <name><![CDATA[Nam Luuduc]]></name>
