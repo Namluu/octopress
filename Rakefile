@@ -404,3 +404,13 @@ task :list do
   puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:list]]).join(', ')}"
   puts "(type rake -T for more detail)\n\n"
 end
+
+desc "push to octopress also"
+task :push_octopress do
+  puts "pushing to octopress repo"
+  system "git checkout master"
+  system "git pull octopress master"
+  system "git add ."
+  system "git commit -m \"Octopress push new post\""
+  system "git push octopress master"
+end
